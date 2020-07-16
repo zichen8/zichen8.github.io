@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>注解</title>
+      <link href="/2020/07/16/value-annotation/"/>
+      <url>/2020/07/16/value-annotation/</url>
+      
+        <content type="html"><![CDATA[<p>在java类中用@Value注解，读取application.yml的属性，并绑定变量，代码如下<a id="more"></a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(&quot;$&#123;myjwt.tokenExpireTime&#125;&quot;)</span><br><span class="line">public Integer tokenExpireTime;</span><br></pre></td></tr></table></figure><br>application.yml<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myjwt:</span><br><span class="line">  tokenExpireTime: 1024</span><br></pre></td></tr></table></figure><p>用Alt+Enter键自动引用了 “lombok.Value” 包，结果@Value这行标注红字，编译无法通过。</p><p>后来在网上搜到问题所在，此时要导入的Value的包不是lombok.Value,而是org.springframework.beans.factory.annotation.Value，<br>更换了导入包，则问题解决。</p><p>lombok里@Value的用法：注解在类上，相当于为属性添加 final 声明，只提供 getter 方法，而不提供 setter 方法。</p><p>Java的一个“暴力”美学之处在于注解，可省略很多重复性的代码。在方法上加注解可以实现很多复杂功能，并且方法内部无代码侵入，比如Redisson的分布式锁，<br>最近在学习<a href="https://gitee.com/ztp/redisson-spring-boot-starter" target="_blank" rel="noopener">redisson-spring-boot-starter</a>，开源软件，支持多种上锁方式，<br>注解是@Lock。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> lombok </tag>
+            
+            <tag> redisson </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>看淡今朝</title>
       <link href="/2020/07/11/let-it-go-today/"/>
       <url>/2020/07/11/let-it-go-today/</url>
